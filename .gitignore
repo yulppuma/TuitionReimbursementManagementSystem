@@ -70,3 +70,10 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+
+# Servers
+/Servers/*
+/Servers
+
+/RemoteSystemTempFiles
+/RemosteSystemTempFiles/*
