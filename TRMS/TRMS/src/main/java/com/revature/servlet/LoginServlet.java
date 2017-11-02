@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet {
 		Connection conn = cf.getConnection();
 		Statement stmt;
 		ResultSet rs;
+		String json = "{ 'obj' : [{'key1': 'value1'}]}";
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM DUMMY");
@@ -52,7 +53,7 @@ public class LoginServlet extends HttpServlet {
          //Need to create the service
         //String message = service.doLogin(username, password);
         //response.getWriter().write(message);
-        response.getWriter().write(username + " " + password);
+        response.getWriter().write(json);
 	}
     
     @Override
