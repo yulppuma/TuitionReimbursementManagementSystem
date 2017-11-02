@@ -21,7 +21,7 @@ public class ConnFactoryTest {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM DUMMY");
 			while(rs.next()){
-				System.out.println(rs.getInt(1) + " " + rs.getInt(2) + " " + rs.getInt(3));
+				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getInt(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

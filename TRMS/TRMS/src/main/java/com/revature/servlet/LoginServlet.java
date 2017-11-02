@@ -54,4 +54,12 @@ public class LoginServlet extends HttpServlet {
         //response.getWriter().write(message);
         response.getWriter().write(username + " " + password);
 	}
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    	String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        //Called DAO method here that returns a user-type object (i.e employee, supervisor, dh, or benco)
+        //Call another DAO method to get that user's TR info to display
+    }
 }
