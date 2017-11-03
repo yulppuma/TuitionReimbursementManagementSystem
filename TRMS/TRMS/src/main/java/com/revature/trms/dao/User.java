@@ -8,7 +8,7 @@ public class User {
 	private String userName;
 	private String passWord;
 	private String title;
-	private String seniorityLevel;
+	private int seniorityLevel;
 	private String department;
 	
 	
@@ -18,8 +18,21 @@ public class User {
 	
 	
 	//constructor without ID
-	public User(String first_name, String last_name, String user_name, String pass_word, String title_var, String seniority_level, String department_var) {
+	public User(String user_name, String pass_word, String first_name, String last_name, String title_var, int seniority_level, String department_var) {
 		
+		userName = user_name;
+		passWord = pass_word;
+		firstName = first_name;
+		lastName = last_name;
+		title = title_var;
+		seniorityLevel = seniority_level;
+		department = department_var;
+	}
+	
+	//constructor with ID
+	public User(int user_id, String user_name, String pass_word, String first_name, String last_name, String title_var, int seniority_level, String department_var) {
+		
+		userID = user_id;
 		firstName = first_name;
 		lastName = last_name;
 		userName = user_name;
@@ -27,19 +40,6 @@ public class User {
 		title = title_var;
 		seniorityLevel = seniority_level;
 		department = department_var;
-	}
-	
-	//constructor with ID
-	public User(int user_id, String first_name, String last_name, String user_name, String pass_word, String title, String seniority_level, String department) {
-		
-		userID = user_id;
-		firstName = first_name;
-		lastName = last_name;
-		userName = user_name;
-		passWord = pass_word;
-		title = title;
-		seniorityLevel = seniority_level;
-		department = department;
 	}
 	
 
@@ -62,7 +62,7 @@ public class User {
 	public String getTitle() {
 		return title;
 	}
-	public String getSeniorityLevel() {
+	public int getSeniorityLevel() {
 		return seniorityLevel;
 	}
 	public String getDepartment() {
@@ -89,7 +89,7 @@ public class User {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public void setSeniorityLevel(String seniorityLevel) {
+	public void setSeniorityLevel(int seniorityLevel) {
 		this.seniorityLevel = seniorityLevel;
 	}
 	public void setDepartment(String department) {
