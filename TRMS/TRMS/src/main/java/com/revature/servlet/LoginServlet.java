@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import com.revature.util.ConnFactory;
 
 /**
@@ -19,6 +21,7 @@ import com.revature.util.ConnFactory;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public static ConnFactory cf = ConnFactory.getInstance();
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 		Connection conn = cf.getConnection();
 		Statement stmt;
 		ResultSet rs;
-		String json = "{ 'obj' : [{'key1': 'value1'}]}";
+		
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM DUMMY");
@@ -53,7 +56,7 @@ public class LoginServlet extends HttpServlet {
          //Need to create the service
         //String message = service.doLogin(username, password);
         //response.getWriter().write(message);
-        response.getWriter().write(json);
+        response.getWriter().write(username + " " + password);
 	}
     
     @Override
@@ -62,5 +65,9 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         //Called DAO method here that returns a user-type object (i.e employee, supervisor, dh, or benco)
         //Call another DAO method to get that user's TR info to display
+        JSONObject obj = new JSONObject();
+        obj.put("username", username);
+        obj.put("password", password);
+        response.getWriter().write(obj.toJSONString());
     }
 }
