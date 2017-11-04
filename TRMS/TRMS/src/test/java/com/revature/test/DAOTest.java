@@ -55,33 +55,33 @@ public class DAOTest {
 		assertEquals(expected, actual);
 	}
 
-	@Test
-	public void insertUserTest() {
-		// given
-		User guy = new User("daotester02", "password", "yul", "man", "Assistant", 1, "PEGA");
+//	@Test
+//	public void insertUserTest() {
+//		// given
+//		User guy = new User("daotester02", "password", "yul", "man", "Assistant", 1, "PEGA");
+//
+//		// when
+//		boolean expected = true;
+//		boolean actual = dao.insertUser(guy);
+//
+//		// then
+//		assertEquals(expected, actual);
+//	}
 
-		// when
-		boolean expected = true;
-		boolean actual = dao.insertUser(guy);
-
-		// then
-		assertEquals(expected, actual);
-	}
 
 
-
-	@Test
-	public void updateUserTest() {
-		// given
-		User guy = new User(21, "daotester00", "password01", "super super", "man", "Assistant Tester", 2, "PEGA");
-
-		// when
-		boolean expected = true;
-		boolean actual = dao.updateUser(guy);
-
-		// then
-		assertEquals(expected, actual);
-	}
+//	@Test
+//	public void updateUserTest() {
+//		// given
+//		User guy = new User(21, "daotester00", "password01", "super super", "man", "Assistant Tester", 2, "PEGA");
+//
+//		// when
+//		boolean expected = true;
+//		boolean actual = dao.updateUser(guy);
+//
+//		// then
+//		assertEquals(expected, actual);
+//	}
 	
 	@Test
 	public void deleteUserTest() {
@@ -89,7 +89,7 @@ public class DAOTest {
 
 		// when
 		boolean expected = true;
-		boolean actual = dao.deleteUser(21);
+		boolean actual = dao.deleteUser(31);
 
 		// then
 		assertEquals(expected, actual);
