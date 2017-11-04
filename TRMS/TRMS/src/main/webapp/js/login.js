@@ -15,11 +15,14 @@ function login(){
             $('#messageDiv').append("Enter password");
         }
         $.ajax({
-        	type: "GET",
+        	type: "POST",
         	url: "LoginServlet",
         	data: {username: username,password: password},
         	success : function(results){
-        		console.log(results);
+        		var obj = results.toString();
+        		var js = JSON.parse(obj);
+        		
+        		console.log(js.password + js.username);
         	}
         });
 	}
