@@ -3,29 +3,30 @@
   <head>
   	<link rel="stylesheet" href="bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css"/>
   	<link rel="icon" href="trms_pictures/trms_favi.png" type="image/png"/>
+  	<link rel="stylesheet" type="text/css" href="css/login.css">
     <title>Welcome to TRMS!</title>
   </head>
   <body>
     <h1>Welcome to TRMS!</h1>
 	<form id="loginForm" action="/LoginServlet" method="GET">
-	  <div class="form-group">
+	  <div class="form-group container">
 	    <label for="username">Username</label>
-	    <input type="text" class="form-control" id="username" placeholder="Enter username">
+	    <input type="text" class="form-control login" id="username" placeholder="Enter username">
 	  </div>
-	  <div class="form-group">
+	  <div class="form-group container">
 	    <label for="password">Password</label>
-	    <input type="password" class="form-control" id="password" placeholder="Enter password">
+	    <input type="password" class="form-control login" id="password" placeholder="Enter password">
 	  </div>
 	  <!-- <div class="form-group"> Will use later for file input, just for reference
 	    <label for="exampleInputFile">File input</label>
 	    <input type="file" id="exampleInputFile">
 	  </div> -->
-	  <div class="checkbox">
+	  <!-- <div class="checkbox">
 	    <label>
-	      <input type="checkbox"> Remember Me <!--If we have time, I'd like to add this feature  -->
+	      <input type="checkbox"> Remember Me If we have time, I'd like to add this feature 
 	    </label>
-	  </div>
-	  <input type="submit" class="btn btn-default" id="loginButton">
+	  </div> -->
+	  <button type="submit" class="btn btn-primary">Login</button>
 	</form>
 	<p id="messageDiv"></p>
 	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
