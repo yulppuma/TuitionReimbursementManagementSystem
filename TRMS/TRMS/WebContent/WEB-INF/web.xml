@@ -19,4 +19,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TuitionReimbursementFormServlet</display-name>
+    <servlet-name>TuitionReimbursementFormServlet</servlet-name>
+    <servlet-class>com.revature.servlet.TuitionReimbursementFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TuitionReimbursementFormServlet</servlet-name>
+    <url-pattern>/TuitionReimbursementFormServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
