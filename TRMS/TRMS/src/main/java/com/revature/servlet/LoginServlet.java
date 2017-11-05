@@ -128,6 +128,7 @@ public class LoginServlet extends HttpServlet {
         	System.out.println(user.getFirstName() + " " + user.getLastName());
         }
         JSONObject obj = new JSONObject();
+        obj.put("userid", user.getUserID());
         obj.put("username", user.getUserName());
         obj.put("password", user.getPassWord());
         obj.put("firstname", user.getFirstName());
