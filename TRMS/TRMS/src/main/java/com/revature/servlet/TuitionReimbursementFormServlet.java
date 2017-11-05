@@ -33,6 +33,9 @@ public class TuitionReimbursementFormServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String gradingFormat = request.getParameter("gradingFormat");
+		String eventType = request.getParameter("eventType");
+		System.out.println(gradingFormat);
 	}
 
 	/**
