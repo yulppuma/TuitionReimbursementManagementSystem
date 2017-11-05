@@ -26,6 +26,21 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		return null;
 	}
 	
+	public Employee getEmployeeByCreds(String un, String pw) throws SQLException {
+		// TODO Auto-generated method stub
+		try{
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Employees WHERE USERNAME = '" + un + "' AND PSWD = '" + pw + "'");
+			
+			if(rs.next()){
+				return extractEmployeeFromResultSet(rs);
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public Employee extractEmployeeFromResultSet(ResultSet rs){
 		Employee emp = new Employee();
 		
@@ -40,5 +55,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 		
 		return emp;
 	}
+
+	
 
 }

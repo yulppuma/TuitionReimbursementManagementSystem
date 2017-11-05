@@ -26,6 +26,21 @@ public class DepartmentHeadDAOImp implements DepartmentHeadDAO {
 		return null;
 	}
 
+	public DepartmentHead getDepartmentHeadByCreds(String un, String pw) throws SQLException {
+		// TODO Auto-generated method stub
+		try{
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM DEPARTMENTHEADS WHERE USERNAME = '" + un + "' AND PSWD = '" + pw + "'");
+			
+			if(rs.next()){
+				return extractDepartmentHeadFromResultSet(rs);
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public DepartmentHead extractDepartmentHeadFromResultSet(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
 		DepartmentHead dp = new DepartmentHead();

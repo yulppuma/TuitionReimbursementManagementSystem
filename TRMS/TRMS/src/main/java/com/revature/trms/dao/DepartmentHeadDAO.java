@@ -7,5 +7,7 @@ public interface DepartmentHeadDAO {
 	
 	public DepartmentHead getDepartmentHead(int uid) throws SQLException;
 	
+	public DepartmentHead getDepartmentHeadByCreds(String un, String pw) throws SQLException;
+	
 	public DepartmentHead extractDepartmentHeadFromResultSet(ResultSet rs) throws SQLException;
 }
