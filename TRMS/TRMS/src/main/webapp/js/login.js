@@ -6,6 +6,7 @@ function login(){
 		event.preventDefault();
 		var username = $("#username").val();
 		var password = $("#password").val();
+		var type = $('input[name=inlineRadioOptions]:checked', '#loginForm').val();
 		//console.log(username + " " + password);
 		if(username == ""){
 			//Whenever form is submitted, the doc is refreshed
@@ -15,11 +16,15 @@ function login(){
             $('#messageDiv').append("Enter password");
         }
         $.ajax({
-        	type: "GET",
+        	type: "POST",
         	url: "LoginServlet",
-        	data: {username: username,password: password},
+        	data: {username: username,password: password, type: type},
         	success : function(results){
-        		console.log(results);
+        		var obj = results.toString();
+        		var js = JSON.parse(obj);
+        		
+        		console.log(js.username + " " + js.password + " " + js.firstname + " " + js.lastname
+        				+ " " + js.title + " " + js.department + " " + js.slevel);
         	}
         });
 	}
