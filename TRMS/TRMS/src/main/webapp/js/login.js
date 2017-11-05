@@ -2,6 +2,17 @@
  * 
  */
 
+var user = {
+userID: "",
+username:"",
+password:"",
+firstname:"",
+lastname:"",
+title:"",
+slevel:"",
+department:""
+};
+
 function login(){
 		event.preventDefault();
 		var username = $("#username").val();
@@ -23,7 +34,8 @@ function login(){
         		var obj = results.toString();
         		var js = JSON.parse(obj);
         		
-        		console.log(js.username + " " + js.password + " " + js.firstname + " " + js.lastname
+        		user.
+        		console.log(js.userid + " " + js.username + " " + js.password + " " + js.firstname + " " + js.lastname
         				+ " " + js.title + " " + js.department + " " + js.slevel);
         	}
         });
