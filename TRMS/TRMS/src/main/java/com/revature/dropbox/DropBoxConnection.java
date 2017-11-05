@@ -34,10 +34,10 @@ public class DropBoxConnection {
 		
 	}
 	
-	public void downloadFile(String filename) {
+	public void downloadFile(String filename, String path) {
 		OutputStream out;
 		try {
-			out = new FileOutputStream(filename);
+			out = new FileOutputStream(path);
 			FileMetadata metadata = client.files().downloadBuilder("/" + filename).download(out);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
