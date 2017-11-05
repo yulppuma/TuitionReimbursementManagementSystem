@@ -20,5 +20,16 @@ public class EmployeeDAOTest {
 		}
 		System.out.println(emp.getUsername() + " " + emp.getPassword());
 	}
+	
+	@Test
+	public void getEmployeeByCredTest(){
+		Employee emp = null;
+		try{
+			emp = edi.getEmployeeByCreds("dsuarez", "yo");
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		System.out.println(emp.getUid());
+	}
 
 }

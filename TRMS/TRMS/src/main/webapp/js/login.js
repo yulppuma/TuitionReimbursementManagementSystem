@@ -6,6 +6,8 @@ function login(){
 		event.preventDefault();
 		var username = $("#username").val();
 		var password = $("#password").val();
+		var type = $('input[name=inlineRadioOptions]:checked', '#loginForm').val();
+		alert(type);
 		//console.log(username + " " + password);
 		if(username == ""){
 			//Whenever form is submitted, the doc is refreshed

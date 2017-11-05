@@ -25,6 +25,21 @@ public class DirectSupervisorDAOImp implements DirectSupervisorDAO {
 		}
 		return null;
 	}
+	
+	public DirectSupervisor getDirectSupervisorByCreds(String un, String pw) throws SQLException {
+		// TODO Auto-generated method stub
+		try{
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM SUPERVISORS WHERE USERNAME = '" + un + "' AND PSWD = '" + pw + "'");
+			
+			if(rs.next()){
+				return extractDirectSupervisorFromResultSet(rs);
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public DirectSupervisor extractDirectSupervisorFromResultSet(ResultSet rs) throws SQLException {
 		// TODO Auto-generated method stub
@@ -38,5 +53,7 @@ public class DirectSupervisorDAOImp implements DirectSupervisorDAO {
 		}
 		return ds;
 	}
+
+	
 
 }
