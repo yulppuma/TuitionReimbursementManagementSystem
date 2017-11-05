@@ -1,6 +1,6 @@
 package com.revature.trms.dao;
 
-public class Benco {
+public class Benco extends User{
 
 	private int userID;
 	private String userName;
