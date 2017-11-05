@@ -13,6 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
+import com.revature.trms.dao.Benco;
+import com.revature.trms.dao.BencoDAOImp;
+import com.revature.trms.dao.DepartmentHead;
+import com.revature.trms.dao.DepartmentHeadDAOImp;
+import com.revature.trms.dao.DirectSupervisor;
+import com.revature.trms.dao.DirectSupervisorDAOImp;
+import com.revature.trms.dao.Employee;
+import com.revature.trms.dao.EmployeeDAOImp;
 import com.revature.util.ConnFactory;
 
 /**
@@ -21,6 +29,10 @@ import com.revature.util.ConnFactory;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public static ConnFactory cf = ConnFactory.getInstance();
+    public EmployeeDAOImp edi = new EmployeeDAOImp();
+    public DepartmentHeadDAOImp dhdi = new DepartmentHeadDAOImp();
+    public DirectSupervisorDAOImp dsdi = new DirectSupervisorDAOImp();
+    public BencoDAOImp bcdi = new BencoDAOImp();
     
     /**
      * @see HttpServlet#HttpServlet()
@@ -63,11 +75,53 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String type = request.getParameter("type");
         //Called DAO method here that returns a user-type object (i.e employee, supervisor, dh, or benco)
         //Call another DAO method to get that user's TR info to display
+        System.out.println(type);
+        Employee emp = null;
+        DirectSupervisor ds = null;
+    	DepartmentHead dh = null;
+    	Benco bc = null;
+        if(type.equals("Employee")){
+        	try {
+        		emp = edi.getEmployeeByCreds(username, password);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	System.out.println(emp.getUsername());
+        }
+        else if(type.equals("DirectSupervisor")){
+        	try {
+				ds = dsdi.getDirectSupervisorByCreds(username, password);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+        else if(type.equals("DepartmentHead")){
+        	try {
+				dh = dhdi.getDepartmentHeadByCreds(username, password);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+        else{
+        	try {
+				bc = bcdi.getBencoByCreds(username, password);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
         JSONObject obj = new JSONObject();
         obj.put("username", username);
         obj.put("password", password);
+        obj.put("type", type);
         response.getWriter().write(obj.toJSONString());
     }
+    
+    
 }

@@ -19,12 +19,12 @@ function login(){
         $.ajax({
         	type: "POST",
         	url: "LoginServlet",
-        	data: {username: username,password: password},
+        	data: {username: username,password: password, type: type},
         	success : function(results){
         		var obj = results.toString();
         		var js = JSON.parse(obj);
         		
-        		console.log(js.password + js.username);
+        		console.log(js.password + js.username + " " + js.type);
         	}
         });
 	}
