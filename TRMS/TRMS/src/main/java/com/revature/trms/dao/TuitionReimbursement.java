@@ -1,6 +1,7 @@
 package com.revature.trms.dao;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 public class TuitionReimbursement {
  /*
@@ -15,29 +16,75 @@ public class TuitionReimbursement {
 	private int trid;
 	private double tcost;
 	private double amount;
+	private String loc;
 	private String eventtype;
 	private String status;
-	private Date date;
+	private String details;
+	private String justification;
+	private Date startDate;
+	private Date todaysDate;
 	private int uid;
 	private int sid;
 	private int dhid;
 	private int bcid;
+	private String grade;
 	
 	public TuitionReimbursement(){
 		super();
 	}
 	
-	public TuitionReimbursement(int trid, double tcost, double amount, String eventtype, String status, Date date, int uid, int sid, int dhid, int bcid){
+	public TuitionReimbursement(int trid, double tcost, double amount, String loc, String justification, String details, String eventtype, int uid, int sid, int dhid, int bcid){
 		this.trid = trid;
 		this.tcost =tcost;
 		this.amount = amount;
+		this.loc = loc;
+		this.details = details;
 		this.eventtype = eventtype;
-		this.status = status;
-		this.date = date;
+		this.status = "pending";
 		this.uid = uid;
 		this.sid = sid;
 		this.dhid = dhid;
 		this.bcid = bcid;
+	}
+
+	public String getLoc() {
+		return loc;
+	}
+
+	public void setLoc(String loc) {
+		this.loc = loc;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public String getJustification() {
+		return justification;
+	}
+
+	public void setJustification(String justification) {
+		this.justification = justification;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getTodaysDate() {
+		return todaysDate;
+	}
+
+	public void setTodaysDate(Date todaysDate) {
+		this.todaysDate = todaysDate;
 	}
 
 	public int getTrid() {
@@ -78,14 +125,6 @@ public class TuitionReimbursement {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public int getUid() {
