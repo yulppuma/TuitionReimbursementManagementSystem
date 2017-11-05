@@ -8,23 +8,52 @@
 </head>
 <body>
 	<h1>Tuition Reimbursement Form</h1>
-	<form>
+	<form id="tuitionForm" action="/TuitionReimbursementFormServlet" method="POST">
 	  <div class="form-group">
-	    <label for="exampleFormControlSelect1">Grading Format</label>
-	    <select class="form-control" id="exampleFormControlSelect1">
+	    <label for="gradingFormat">Grading Format</label>
+	    <select class="form-control" id="gradingFormat">
 	      <option>Letter Grade</option>
 	      <option>Pass/Fail</option>
 	      <option>Credit/No Credit</option>
 	    </select>
 	  </div>
+	  <div class="form-group">
+	    <label for="eventType">Event Type</label>
+	    <select class="form-control" id="eventType">
+	      <option>University Courses</option>
+	      <option>Seminars</option>
+	      <option>Certification Preparation Classes</option>
+	      <option>Certification</option>
+	      <option>Technical Training</option>
+	      <option>Other</option>
+	    </select>
+	  </div>
 	  <div>
 	  	<label for="location">Location: </label>
-	  	<input type="text">
+	  	<input type="text" id="location">
 	  </div>
 	  <div class="form-group">
-	    <label for="exampleFormControlTextarea1">Description</label>
-	    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	    <label for="description">Description</label>
+	    <textarea class="form-control" id="description" rows="3"></textarea>
 	  </div>
+	  <div class="form-group">
+	  	<label for="datepicker">Start Date: </label>
+	  	<input type="date" name="bday" id="datepicker">
+	  </div>
+	  <div class="form-group">
+	    <label for="justification">Justification</label>
+	    <textarea class="form-control" id="justification" rows="3"></textarea>
+	  </div>
+	   <div class="form-row">
+        <label for="c2">Event Cost</label>
+    <div class="input-group"> 
+        <span class="input-group-addon">$</span>
+        <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+    </div>
+        </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
 	</form>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/tuition_reimbursement_form.js"></script>
 </body>
 </html>
