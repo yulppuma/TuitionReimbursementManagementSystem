@@ -7,7 +7,6 @@ function login(){
 		var username = $("#username").val();
 		var password = $("#password").val();
 		var type = $('input[name=inlineRadioOptions]:checked', '#loginForm').val();
-		alert(type);
 		//console.log(username + " " + password);
 		if(username == ""){
 			//Whenever form is submitted, the doc is refreshed
@@ -24,7 +23,8 @@ function login(){
         		var obj = results.toString();
         		var js = JSON.parse(obj);
         		
-        		console.log(js.password + js.username + " " + js.type);
+        		console.log(js.username + " " + js.password + " " + js.firstname + " " + js.lastname
+        				+ " " + js.title + " " + js.department + " " + js.slevel);
         	}
         });
 	}

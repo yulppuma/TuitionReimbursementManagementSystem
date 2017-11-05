@@ -1,6 +1,6 @@
 package com.revature.trms.dao;
 
-public class DepartmentHead {
+public class DepartmentHead extends User {
 	private String username;
 	private String password;
 	private int uid;

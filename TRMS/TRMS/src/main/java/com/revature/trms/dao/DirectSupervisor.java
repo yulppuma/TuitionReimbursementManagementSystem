@@ -1,6 +1,6 @@
 package com.revature.trms.dao;
 
-public class DirectSupervisor {
+public class DirectSupervisor extends User{
 	private String username;
 	private String password;
 	private int uid;
