@@ -34,9 +34,9 @@ function login(){
         		var obj = results.toString();
         		var js = JSON.parse(obj);
         		
-        		user.
-        		console.log(js.userid + " " + js.username + " " + js.password + " " + js.firstname + " " + js.lastname
+        		alert(js.userid + " " + js.username + " " + js.password + " " + js.firstname + " " + js.lastname
         				+ " " + js.title + " " + js.department + " " + js.slevel);
+        		window.location.replace("http://localhost:8090/TRMS/mainpage.html");
         	}
         });
 	}
